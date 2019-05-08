@@ -22,3 +22,19 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+cal = calendar.TextCalendar()
+x = datetime.now()
+
+if len(sys.argv) == 3:
+  str = cal.formatmonth(int(sys.argv[2:][0]), int(sys.argv[1:][0]))
+if len(sys.argv) == 2:
+  str = cal.formatmonth(x.year, int(sys.argv[1:][0]))
+if len(sys.argv) == 1:
+  str = cal.formatmonth(x.year, int(x.strftime("%m")))
+if len(sys.argv) > 3:
+  print('Please enter cal.py month [year] to run the program')
+else:
+  print(str)
+
+
